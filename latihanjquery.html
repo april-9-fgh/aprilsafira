@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan jQuery Pertama</title>
+
+    <!-- Memuat jQuery dari CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        #paragraf1, #paragraf2 {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="paragraf1">Sapi adalah hewan mamalia berkaki empat yang termasuk dalam keluarga Bovidae dan genus Bos. Sapi telah dijinakkan oleh manusia sejak ribuan tahun lalu dan sangat bermanfaat dalam berbagai aspek kehidupan, terutama di bidang pertanian, peternakan, dan industri makanan.</p>
+    <p id="paragraf2">Secara umum, sapi dibudidayakan untuk:Dagingnya (disebut sapi potong),Susunya (sapi perah),Tenaganya (sebagai hewan pekerja di ladang di beberapa daerah),Kulitnya (untuk bahan kulit industri),dan kotorannya (bisa digunakan sebagai pupuk atau biogas).Sapi merupakan hewan ruminansia, artinya mereka memiliki sistem pencernaan khusus dengan empat bagian lambung (rumen, retikulum, omasum, dan abomasum) yang memungkinkan mereka mencerna serat dari tumbuhan seperti rumput.</p>
+    <button id="tombol">Klik Saya</button>
+    <button id="tombol2">Tampilkan Paragraf</button>
+    <button id="tombol3">tukar paragraf</button>
+
+    <script>
+        $(document).ready(function(){
+            $("#tombol").click(function(){
+                $("#paragraf1, #paragraf2").fadeOut("slow");
+            });
+
+            $("#tombol2").click(function(){
+                $("#paragraf1, #paragraf2").fadeIn("slow"); // atau bisa pakai .show()
+            });
+            $("#tombol3").click(function(){
+                const p1 = $("#paragraf1");
+                const p2 = $("#paragraf2");
+                if (p1.next()[0] === p2[0]) {
+                    p2.insertBefore(p1);
+                } else {
+                    p1.insertBefore(p2);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
